@@ -38,7 +38,7 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            I'm a creator and self-trained artist living and working in New
+            I&apos;m a creator and self-trained artist living and working in New
             Zealand. As someone who values hard work, integrity, and respect
             above all else, I approach every challenge and interaction with
             honesty and transparency. I believe that building strong
