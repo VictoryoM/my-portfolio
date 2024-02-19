@@ -19,7 +19,7 @@ const achievementsList = [
   {
     prefix: "~",
     metric: "Clients",
-    value: "2",
+    value: "4",
     order: 2,
   },
   {
