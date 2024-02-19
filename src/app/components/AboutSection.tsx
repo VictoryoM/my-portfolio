@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRef, useState, useTransition } from "react";
 import aboutPicture from "../../../public/images/profile-img.jpg";
 import TabButton from "./TabButton";
+import { Skeleton } from "@nextui-org/react";
 
 const TAB_DATA = [
   {
@@ -25,7 +26,7 @@ const TAB_DATA = [
     id: "education",
     content: (
       <ul className="list-disc pl-2">
-        <li>Bachelor of Information Technology, Te Pukenga, Invercargill</li>
+        <li>Bachelor of Information Technology, Te Pūkenga, Invercargill</li>
         <li>
           Certificate of English Proficiency, Southern Institute of Technology,
           Invercargill
@@ -79,14 +80,18 @@ const AboutSection = () => {
             width={400}
             height={400}
           /> */}
-        <Image
-          src={aboutPicture}
-          alt="about_picture"
-          className="rounded-medium relative shadow-2xl shadow-white"
-          width={400}
-          height={400}
-          // style={{ top: "20px", left: "20px" }}
-        />
+        {aboutPicture ? (
+          <Image
+            src={aboutPicture}
+            alt="about_picture"
+            className="rounded-medium relative shadow-2xl shadow-white"
+            width={400}
+            height={400}
+            // style={{ top: "20px", left: "20px" }}
+          />
+        ) : (
+          <Skeleton className="rounded-medium relative shadow-2xl shadow-white" />
+        )}
         {/* </div> */}
 
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">

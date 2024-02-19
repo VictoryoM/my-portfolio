@@ -13,7 +13,7 @@ const projectsData = [
     image: "/images/coolzeac.png",
     tag: ["All", "Client"],
     gitUrl: "/",
-    previewUrl: "/",
+    previewUrl: "https://coolzeac.com",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const projectsData = [
     image: "/images/portfolio-latest.png",
     tag: ["All", "Personal"],
     gitUrl: "/",
-    previewUrl: "/",
+    previewUrl: "https://victoryo.vercel.app",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const projectsData = [
     image: "/images/dragonsteel.png",
     tag: ["All", "Client"],
     gitUrl: "/",
-    previewUrl: "/",
+    previewUrl: "https://dragonsteel.vercel.app",
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ const projectsData = [
     image: "/images/portfolio-react.png",
     tag: ["All", "Personal"],
     gitUrl: "/",
-    previewUrl: "/",
+    previewUrl: "https://victoryos.vercel.app",
   },
 ];
 
