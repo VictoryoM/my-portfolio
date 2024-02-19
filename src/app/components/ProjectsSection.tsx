@@ -12,7 +12,7 @@ const projectsData = [
       "Coolze AC Website is a project that I worked on for a client. It is a website for an air conditioning company.",
     image: "/images/coolzeac.png",
     tag: ["All", "Client"],
-    gitUrl: "/",
+    gitUrl: "https://github.com/MitraWebsite/Coolze",
     previewUrl: "https://coolzeac.com",
   },
   {
@@ -22,7 +22,7 @@ const projectsData = [
       "This is my portfolio website. I built it using Next.js, Tailwind CSS, and Framer Motion.",
     image: "/images/portfolio-latest.png",
     tag: ["All", "Personal"],
-    gitUrl: "/",
+    gitUrl: "https://github.com/VictoryoM/my-portfolio",
     previewUrl: "https://victoryo.vercel.app",
   },
   {
@@ -41,8 +41,17 @@ const projectsData = [
     description: "This is a project that I did when I was learning React.",
     image: "/images/portfolio-react.png",
     tag: ["All", "Personal"],
-    gitUrl: "/",
+    gitUrl: "https://github.com/VictoryoM/assignment-709",
     previewUrl: "https://victoryos.vercel.app",
+  },
+  {
+    id: 5,
+    title: "Quizie 721",
+    description: "Quizie 721 is a project that I did when I was studying.",
+    image: "/images/portfolio-react.png",
+    tag: ["All", "Personal"],
+    gitUrl: "https://github.com/VictoryoM/quizie-721",
+    previewUrl: "https://quizie-721.vercel.app/",
   },
 ];
 

@@ -1,25 +1,19 @@
 "use client";
-import Image from "next/image";
-import v from "../../../public/images/letter-v.png";
-import { FC, useState } from "react";
 import {
+  Link,
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Link,
-  Avatar,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownTrigger,
-  Button,
   NavbarMenu,
   NavbarMenuItem,
   NavbarMenuToggle,
 } from "@nextui-org/react";
+import Image from "next/image";
+import { FC, useState } from "react";
 import DiscordNavIcon from "../../../public/discord-nav-icon.svg";
 import GithubNavIcon from "../../../public/github-nav-icon.svg";
+import v from "../../../public/images/letter-v.png";
 import InstagramNavIcon from "../../../public/instagram-nav-icon.svg";
 import WhatsappNavIcon from "../../../public/whatsapp-nav-icon.svg";
 
@@ -67,25 +61,27 @@ const NavBar: FC<NavbarProps> = ({}) => {
           className="sm:hidden text-white"
         />
         <NavbarBrand>
-          <Image src={v} alt="V" width={35} height={35} />
-          <p className="font-bold text-inherit text-white">Victoryo</p>
+          <Link color="secondary" href="/">
+            <Image src={v} alt="V" width={35} height={35} />
+            <p className="font-bold text-inherit text-white">Victoryo</p>
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="secondary" href="#">
-            Features
+          <Link color="secondary" href="/#about">
+            About
           </Link>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link href="#" aria-current="page" color="primary">
-            Customers
+          <Link href="/#projects" aria-current="page" color="primary">
+            Projects
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="secondary" href="#">
-            Integrations
+          <Link color="secondary" href="/#contact">
+            Contact
           </Link>
         </NavbarItem>
       </NavbarContent>
