@@ -1,4 +1,5 @@
 import { EmailSend } from "@/app/components/EmailSend";
+import { EmailValidator } from "@/lib/validators/email";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
@@ -6,7 +7,8 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.FROM_EMAIL;
 
 export async function POST(req: Request) {
-  const { email, subject, message } = await req.json();
+  const body = await req.json();
+  const { email, subject, message } = EmailValidator.parse(body);
   console.log(email, subject, message);
   if (!email || !subject || !message) {
     return new Response("Missing required fields", { status: 400 });

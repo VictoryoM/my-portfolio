@@ -7,39 +7,74 @@ import DiscordIcon from "../../../public/discord-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
+import { useMutation } from "@tanstack/react-query";
+import { EmailSendPayload } from "@/lib/validators/email";
+import axios from "axios";
+import { Button } from "@nextui-org/react";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [email, setEmail] = useState({
+    email: "",
+    subject: "",
+    message: "",
+  });
 
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    const data = {
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
-    const JSONdata = JSON.stringify(data);
-    const endpoint = "/api/send";
+  const { mutate: handleSubmit, isPending } = useMutation({
+    mutationFn: async (e: any) => {
+      e.preventDefault();
+      const payload: EmailSendPayload = {
+        email: e.target.email.value,
+        subject: e.target.subject.value,
+        message: e.target.message.value,
+      };
+      const { data } = await axios.post("/api/send", payload);
+      return data as string;
+    },
+    // onError: (err) => {
+    //   if (err instanceof AxiosError) {
+    //     if (err.response?.status === 409) {
+    //       return toast({
+    //         title: "Material already exists",
+    //         description: "Please double check it again",
+    //         variant: "destructive",
+    //       });
+    //     }
+    //     if (err.response?.status === 422) {
+    //       return toast({
+    //         title: "Invalid material name",
+    //         description: err.response?.data
+    //           .map((item: any) => item.message)
+    //           .join("\n"),
+    //         variant: "destructive",
+    //       });
+    //     }
 
-    // Form the request for sending data to the server.
-    const options = {
-      // The method is POST because we are sending data.
-      method: "POST",
-      // Tell the server we're sending JSON.
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // Body of the request is the JSON data we created above.
-      body: JSONdata,
-    };
-
-    const response = await fetch(endpoint, options);
-
-    if (response.status === 200) {
-      console.log("Message sent.");
+    //     if (err.response?.status === 401) {
+    //       return loginToast();
+    //     }
+    //   }
+    //   return toast({
+    //     title: "Something went wrong",
+    //     description:
+    //       "Please check all the fields are filled or try again later",
+    //     variant: "destructive",
+    //   });
+    // },
+    onSuccess: (data) => {
       setEmailSubmitted(true);
-    }
-  };
+      // return toast({
+      //   title: "Material created successfully",
+      //   description: "You can now add a new product",
+      //   variant: "default",
+      //   style: {
+      //     backgroundColor: "rgba(34, 187, 51, 0.8)",
+      //     color: "#ffffff",
+      //   },
+      //   duration: 10000,
+      // });
+    },
+  });
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -104,69 +139,82 @@ const EmailSection = () => {
             </Link>
           </div>
         </div>
-        <div>
-          <div>
-            {emailSubmitted ? (
-              <p className="text-green-500 text-sm mt-2">
-                Email sent successfully!
-              </p>
-            ) : (
-              <form className="flex flex-col" onSubmit={handleSubmit}>
-                <div className="mb-6">
-                  <label
-                    htmlFor="email"
-                    className="text-white block mb-2 text-sm font-medium"
-                  >
-                    Your email
-                  </label>
-                  <input
-                    name="email"
-                    type="email"
-                    id="email"
-                    required
-                    className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                    placeholder="company@google.com"
-                  />
-                </div>
-                <div className="mb-6">
-                  <label
-                    htmlFor="subject"
-                    className="text-white block text-sm mb-2 font-medium"
-                  >
-                    Subject
-                  </label>
-                  <input
-                    name="subject"
-                    type="text"
-                    id="subject"
-                    required
-                    className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                    placeholder="Just saying hi"
-                  />
-                </div>
-                <div className="mb-6">
-                  <label
-                    htmlFor="message"
-                    className="text-white block text-sm mb-2 font-medium"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    name="message"
-                    id="message"
-                    className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                    placeholder="Let's talk about..."
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
+        <div className="h-80">
+          {emailSubmitted ? (
+            <div className="text-green-500 text-lg mt-2 flex items-center justify-center bg-green-100 rounded-md shadow-md p-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              Email sent successfully!
+            </div>
+          ) : (
+            <form className="flex flex-col" onSubmit={handleSubmit}>
+              <div className="mb-6">
+                <label
+                  htmlFor="email"
+                  className="text-white block mb-2 text-sm font-medium"
                 >
-                  Send Message
-                </button>
-              </form>
-            )}
-          </div>
+                  Your email
+                </label>
+                <input
+                  name="email"
+                  type="email"
+                  id="email"
+                  required
+                  className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                  placeholder="company@google.com"
+                />
+              </div>
+              <div className="mb-6">
+                <label
+                  htmlFor="subject"
+                  className="text-white block text-sm mb-2 font-medium"
+                >
+                  Subject
+                </label>
+                <input
+                  name="subject"
+                  type="text"
+                  id="subject"
+                  required
+                  className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                  placeholder="Just saying hi"
+                />
+              </div>
+              <div className="mb-6">
+                <label
+                  htmlFor="message"
+                  className="text-white block text-sm mb-2 font-medium"
+                >
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  id="message"
+                  className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                  placeholder="Let's talk about..."
+                />
+              </div>
+              <Button
+                type="submit"
+                className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
+                isLoading={isPending}
+              >
+                Send Message
+              </Button>
+            </form>
+          )}
         </div>
       </motion.div>
     </section>
