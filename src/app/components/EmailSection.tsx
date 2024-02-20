@@ -9,8 +9,9 @@ import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useMutation } from "@tanstack/react-query";
 import { EmailSendPayload } from "@/lib/validators/email";
-import axios from "axios";
-import { Button } from "@nextui-org/react";
+import axios, { AxiosError } from "axios";
+import { Button, Input } from "@nextui-org/react";
+import { toast } from "sonner";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
@@ -23,56 +24,35 @@ const EmailSection = () => {
   const { mutate: handleSubmit, isPending } = useMutation({
     mutationFn: async (e: any) => {
       e.preventDefault();
+      toast.loading("Sending email...");
       const payload: EmailSendPayload = {
         email: e.target.email.value,
         subject: e.target.subject.value,
         message: e.target.message.value,
       };
       const { data } = await axios.post("/api/send", payload);
+      if (data === "Email sent") {
+        e.target.reset();
+      }
       return data as string;
     },
-    // onError: (err) => {
-    //   if (err instanceof AxiosError) {
-    //     if (err.response?.status === 409) {
-    //       return toast({
-    //         title: "Material already exists",
-    //         description: "Please double check it again",
-    //         variant: "destructive",
-    //       });
-    //     }
-    //     if (err.response?.status === 422) {
-    //       return toast({
-    //         title: "Invalid material name",
-    //         description: err.response?.data
-    //           .map((item: any) => item.message)
-    //           .join("\n"),
-    //         variant: "destructive",
-    //       });
-    //     }
-
-    //     if (err.response?.status === 401) {
-    //       return loginToast();
-    //     }
-    //   }
-    //   return toast({
-    //     title: "Something went wrong",
-    //     description:
-    //       "Please check all the fields are filled or try again later",
-    //     variant: "destructive",
-    //   });
-    // },
-    onSuccess: (data) => {
+    onError: (err) => {
+      toast.dismiss();
+      if (err instanceof AxiosError) {
+        if (err.response?.status === 422) {
+          return toast.error("Invalid email address, please check again.");
+        }
+      }
+      return toast.error(
+        "Email not sent, please check all the fields and try again."
+      );
+    },
+    onSuccess: () => {
+      toast.dismiss();
       setEmailSubmitted(true);
-      // return toast({
-      //   title: "Material created successfully",
-      //   description: "You can now add a new product",
-      //   variant: "default",
-      //   style: {
-      //     backgroundColor: "rgba(34, 187, 51, 0.8)",
-      //     color: "#ffffff",
-      //   },
-      //   duration: 10000,
-      // });
+      return toast.success(
+        "Email sent successfully! Please note that it may take a while for me to respond. Thank you!"
+      );
     },
   });
 
@@ -83,6 +63,12 @@ const EmailSection = () => {
     initial: { opacity: 0, scale: 0.5 },
     animate: { opacity: 1, scale: 1 },
   };
+
+  if (emailSubmitted) {
+    setTimeout(() => {
+      setEmailSubmitted(false);
+    }, 5000);
+  }
 
   return (
     <section
@@ -206,6 +192,15 @@ const EmailSection = () => {
                   placeholder="Let's talk about..."
                 />
               </div>
+              {/* <div className="mb-6">
+                <Input
+                  type="email"
+                  variant={"bordered"}
+                  color="secondary"
+                  label="Email"
+                  placeholder="Enter your email"
+                />
+              </div> */}
               <Button
                 type="submit"
                 className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
