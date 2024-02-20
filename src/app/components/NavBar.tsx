@@ -11,6 +11,8 @@ import {
 } from "@nextui-org/react";
 import Image from "next/image";
 import { useState } from "react";
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+
 import DiscordNavIcon from "../../../public/discord-nav-icon.svg";
 import GithubNavIcon from "../../../public/github-nav-icon.svg";
 import v from "../../../public/images/letter-v.png";
@@ -33,7 +35,13 @@ const NavBar = ({}) => {
           className="sm:hidden text-white"
         />
         <NavbarBrand>
-          <Link color="secondary" href="/">
+          <Link
+            aria-current="page"
+            as="button"
+            onClick={() => {
+              scroll.scrollToTop();
+            }}
+          >
             <Image src={v} alt="V" width={35} height={35} />
             <p className="font-bold text-inherit text-white">Victoryo</p>
           </Link>
@@ -42,19 +50,39 @@ const NavBar = ({}) => {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="secondary" href="/#about">
+          <ScrollLink
+            to="about"
+            smooth={true}
+            offset={50}
+            duration={500}
+            className="text-violet-600 font-semibold cursor-pointer hover:text-violet-800 transition duration-300"
+            // onSetActive={() => console.log("test")}
+          >
             About
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="/#projects" aria-current="page" color="primary">
-            Projects
-          </Link>
+          </ScrollLink>
         </NavbarItem>
         <NavbarItem>
-          <Link color="secondary" href="/#contact">
+          <ScrollLink
+            to="projects"
+            smooth={true}
+            offset={50}
+            duration={500}
+            className="text-violet-600 font-semibold cursor-pointer hover:text-violet-800 transition duration-300"
+          >
+            Projects
+          </ScrollLink>
+        </NavbarItem>
+        <NavbarItem>
+          <ScrollLink
+            to="contact"
+            smooth={true}
+            offset={50}
+            duration={500}
+            className="text-violet-600 font-semibold cursor-pointer hover:text-violet-800 transition duration-300"
+            // onSetActive={() => console.log("test")}
+          >
             Contact
-          </Link>
+          </ScrollLink>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent as="div" justify="end">
