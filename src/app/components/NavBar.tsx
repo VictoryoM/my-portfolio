@@ -10,50 +10,22 @@ import {
   NavbarMenuToggle,
 } from "@nextui-org/react";
 import Image from "next/image";
-import { FC, useState } from "react";
+import { useState } from "react";
 import DiscordNavIcon from "../../../public/discord-nav-icon.svg";
 import GithubNavIcon from "../../../public/github-nav-icon.svg";
 import v from "../../../public/images/letter-v.png";
 import InstagramNavIcon from "../../../public/instagram-nav-icon.svg";
 import WhatsappNavIcon from "../../../public/whatsapp-nav-icon.svg";
 
-interface NavbarProps {}
-
-const navLinks = [
-  {
-    title: "About",
-    path: "#about",
-  },
-  {
-    title: "Projects",
-    path: "#projects",
-  },
-  {
-    title: "Contact",
-    path: "#contact",
-  },
-];
-
-const NavBar: FC<NavbarProps> = ({}) => {
+const NavBar = ({}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
+  const menuItems = ["Profile", "About", "Projects", "Contact"];
   return (
     <Navbar
       shouldHideOnScroll
       onMenuOpenChange={setIsMenuOpen}
-      className="bg-[#121212]"
+      className="bg-[#121212] bg-opacity-90"
     >
       <NavbarContent>
         <NavbarMenuToggle
@@ -85,35 +57,15 @@ const NavBar: FC<NavbarProps> = ({}) => {
           </Link>
         </NavbarItem>
       </NavbarContent>
-      {/* <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
-      </NavbarContent> */}
       <NavbarContent as="div" justify="end">
-        <Link
-          href="whatsapp.com"
-          className="transition-transform"
-          as="button"
-          size="sm"
-        >
+        <Link href="https://github.com/VictoryoM" target="_blank" size="sm">
           <Image
             src={GithubNavIcon}
             alt="Github Icon"
             className="opacity-40 hover:opacity-100 hover:scale-110 hover:rotate-12 transition-transform duration-300 ease-in-out"
           />
         </Link>
-        <Link
-          href="whatsapp.com"
-          className="transition-transform"
-          as="button"
-          size="sm"
-        >
+        <Link href="https://discord.gg/2AaWAkYYeb" target="_blank" size="sm">
           <Image
             src={DiscordNavIcon}
             alt="Discord Icon"
@@ -121,9 +73,8 @@ const NavBar: FC<NavbarProps> = ({}) => {
           />
         </Link>
         <Link
-          href="whatsapp.com"
-          className="transition-transform"
-          as="button"
+          href="https://www.instagram.com/victoryo11"
+          target="_blank"
           size="sm"
         >
           <Image
@@ -132,42 +83,23 @@ const NavBar: FC<NavbarProps> = ({}) => {
             className="opacity-40 hover:opacity-100 hover:scale-110 hover:rotate-12 transition-transform duration-300 ease-in-out"
           />
         </Link>
-        <Link
-          href="whatsapp.com"
-          className="transition-transform"
-          as="button"
-          size="sm"
-        >
+        <Link href="https://wa.me/+6281563231188" target="_blank" size="sm">
           <Image
             src={WhatsappNavIcon}
             alt="Whatsapp Icon"
             className="opacity-40 hover:opacity-100 hover:scale-110 hover:rotate-12 transition-transform duration-300 ease-in-out"
           />
         </Link>
-        {/* <Avatar
-          isBordered
-          as="button"
-          className="transition-transform"
-          color="secondary"
-          name="Jason Hughes"
-          size="sm"
-          src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-        /> */}
       </NavbarContent>
-      <NavbarMenu className="bg-[#121212]">
+      <NavbarMenu className="bg-[#121212] items-center bg-opacity-70 p-4">
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
+          <NavbarMenuItem
+            key={`${item}-${index}`}
+            className="mb-2 last:mb-0" // Add margin-bottom and remove for the last item
+          >
             <Link
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
-              className="w-full"
-              href="#"
-              size="lg"
+              href="#" // Add the actual href for each menu item
+              className="w-full text-slate-300 py-2 px-4 block rounded-lg hover:bg-slate-800 transition duration-300"
             >
               {item}
             </Link>

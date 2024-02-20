@@ -104,7 +104,7 @@ const AboutSection = () => {
             looking to expand my knowledge and skill set. I am a team player and
             I am excited to work with others to create amazing applications.
           </p>
-          <div className="flex flex-row justify-start mt-8">
+          <div className="flex flex-row justify-start mt-8 text-sm sm:text-medium md:text-lg">
             <TabButton
               selectTab={() => handleTabChange("skills")}
               active={tab === "skills"}
@@ -127,7 +127,7 @@ const AboutSection = () => {
               Work Experience{" "}
             </TabButton>
           </div>
-          <div className="mt-8">
+          <div className="mt-8 text-sm md:text-medium">
             {TAB_DATA.find((t) => t.id === tab)!.content}
           </div>
         </div>

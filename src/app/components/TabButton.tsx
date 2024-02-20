@@ -25,7 +25,7 @@ const TabButton = ({
       <motion.div
         animate={active ? "active" : "default"}
         variants={variants}
-        className="h-1 bg-primary-500 mt-2 mr-3"
+        className="h-1 bg-primary-500 mt-2 mr-3 shadow-blue-600 shadow-md rounded-full transition-all duration-300 ease-in-out"
       ></motion.div>
     </button>
   );

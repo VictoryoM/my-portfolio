@@ -57,17 +57,33 @@ const EmailSection = () => {
           try my best to get back to you!
         </p>
         <div className="socials flex flex-row gap-2">
-          <Link href="github.com">
-            <Image src={GithubIcon} alt="Github Icon" />
+          <Link href="https://github.com/VictoryoM" target="_blank">
+            <Image
+              src={GithubIcon}
+              alt="Github Icon"
+              className="opacity-40 scale-80 hover:opacity-90 hover:scale-100 hover:rotate-6 transition-transform duration-300 ease-in-out"
+            />
           </Link>
-          <Link href="discord.com">
-            <Image src={DiscordIcon} alt="Discord Icon" />
+          <Link href="https://discord.gg/2AaWAkYYeb" target="_blank">
+            <Image
+              src={DiscordIcon}
+              alt="Discord Icon"
+              className="opacity-40 scale-80 hover:opacity-90 hover:scale-100 hover:rotate-6 transition-transform duration-300 ease-in-out"
+            />
           </Link>
-          <Link href="instagram.com">
-            <Image src={InstagramIcon} alt="Instagram Icon" />
+          <Link href="https://www.instagram.com/victoryo11" target="_blank">
+            <Image
+              src={InstagramIcon}
+              alt="Instagram Icon"
+              className="opacity-40 scale-80 hover:opacity-90 hover:scale-100 hover:rotate-6 transition-transform duration-300 ease-in-out"
+            />
           </Link>
-          <Link href="whatsapp.com">
-            <Image src={WhatsappIcon} alt="Whatsapp Icon" />
+          <Link href="https://wa.me/+6281563231188" target="_blank">
+            <Image
+              src={WhatsappIcon}
+              alt="Whatsapp Icon"
+              className="opacity-40 scale-80 hover:opacity-90 hover:scale-100 hover:rotate-6 transition-transform duration-300 ease-in-out"
+            />
           </Link>
         </div>
       </div>
