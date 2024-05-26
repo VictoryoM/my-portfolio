@@ -116,7 +116,7 @@ const EmailSection = () => {
                 className="opacity-40 scale-80 hover:opacity-90 hover:scale-100 hover:rotate-6 transition-transform duration-300 ease-in-out"
               />
             </Link>
-            <Link href="https://wa.me/+6281563231188" target="_blank">
+            <Link href="https://wa.me/+6402108986896" target="_blank">
               <Image
                 src={WhatsappIcon}
                 alt="Whatsapp Icon"
