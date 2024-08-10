@@ -120,7 +120,7 @@ const EmailSection = () => {
               />
             </Link>
             <Link
-              href="https://api.whatsapp.com/send?phone=642108986896"
+              href="https://api.whatsapp.com/send?phone=64210886896"
               target="_blank"
             >
               <Image
