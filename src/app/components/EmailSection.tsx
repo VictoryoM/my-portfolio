@@ -1,17 +1,17 @@
 "use client";
-import React, { useRef, useState } from "react";
+import { EmailSendPayload } from "@/lib/validators/email";
+import { Button } from "@nextui-org/react";
+import { useMutation } from "@tanstack/react-query";
+import axios, { AxiosError } from "axios";
+import { motion, useInView } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { useRef, useState } from "react";
+import { toast } from "sonner";
+import DiscordIcon from "../../../public/discord-icon.svg";
 import GithubIcon from "../../../public/github-icon.svg";
 import InstagramIcon from "../../../public/instagram-icon.svg";
 import WhatsappIcon from "../../../public/whatsapp-icon.svg";
-import DiscordIcon from "../../../public/discord-icon.svg";
-import Link from "next/link";
-import Image from "next/image";
-import { motion, useInView } from "framer-motion";
-import { useMutation } from "@tanstack/react-query";
-import { EmailSendPayload } from "@/lib/validators/email";
-import axios, { AxiosError } from "axios";
-import { Button, Input } from "@nextui-org/react";
-import { toast } from "sonner";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
@@ -109,14 +109,14 @@ const EmailSection = () => {
                 className="opacity-40 scale-80 hover:opacity-90 hover:scale-100 hover:rotate-6 transition-transform duration-300 ease-in-out"
               />
             </Link>
-            <Link href="https://www.instagram.com/victoryo11" target="_blank">
+            <Link href="https://www.instagram.com/victoryo.antonis" target="_blank">
               <Image
                 src={InstagramIcon}
                 alt="Instagram Icon"
                 className="opacity-40 scale-80 hover:opacity-90 hover:scale-100 hover:rotate-6 transition-transform duration-300 ease-in-out"
               />
             </Link>
-            <Link href="https://wa.me/+6402108986896" target="_blank">
+            <Link href="https://api.whatsapp.com/send?phone=642108986896" target="_blank">
               <Image
                 src={WhatsappIcon}
                 alt="Whatsapp Icon"
