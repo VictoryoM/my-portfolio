@@ -101,7 +101,7 @@ const NavBar = ({}) => {
           />
         </Link>
         <Link
-          href="https://www.instagram.com/victoryo11"
+          href="https://www.instagram.com/victoryo.antonis"
           target="_blank"
           size="sm"
         >
@@ -111,7 +111,11 @@ const NavBar = ({}) => {
             className="opacity-40 hover:opacity-100 hover:scale-110 hover:rotate-12 transition-transform duration-300 ease-in-out"
           />
         </Link>
-        <Link href="https://wa.me/+6281563231188" target="_blank" size="sm">
+        <Link
+          href="https://api.whatsapp.com/send?phone=642108986896"
+          target="_blank"
+          size="sm"
+        >
           <Image
             src={WhatsappNavIcon}
             alt="Whatsapp Icon"
