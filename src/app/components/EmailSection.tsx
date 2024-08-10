@@ -9,16 +9,6 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import { toast } from "sonner";
 import DiscordIcon from "../../../public/discord-icon.svg";
-import { EmailSendPayload } from "@/lib/validators/email";
-import { Button } from "@nextui-org/react";
-import { useMutation } from "@tanstack/react-query";
-import axios, { AxiosError } from "axios";
-import { motion, useInView } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import { useRef, useState } from "react";
-import { toast } from "sonner";
-import DiscordIcon from "../../../public/discord-icon.svg";
 import GithubIcon from "../../../public/github-icon.svg";
 import InstagramIcon from "../../../public/instagram-icon.svg";
 import WhatsappIcon from "../../../public/whatsapp-icon.svg";
@@ -123,7 +113,6 @@ const EmailSection = () => {
               href="https://www.instagram.com/victoryo.antonis"
               target="_blank"
             >
-            <Link href="https://www.instagram.com/victoryo.antonis" target="_blank">
               <Image
                 src={InstagramIcon}
                 alt="Instagram Icon"
@@ -131,10 +120,9 @@ const EmailSection = () => {
               />
             </Link>
             <Link
-              href="https://api.whatsapp.com/send?phone=64210886896"
+              href="https://api.whatsapp.com/send?phone=642108986896"
               target="_blank"
             >
-            <Link href="https://api.whatsapp.com/send?phone=642108986896" target="_blank">
               <Image
                 src={WhatsappIcon}
                 alt="Whatsapp Icon"
