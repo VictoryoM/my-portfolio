@@ -65,6 +65,17 @@ const projectsData = [
     gitUrl: "https://github.com/MitraWebsite/SaptaManunggalKarya",
     previewUrl: "https://www.saptamanunggalkarya.com/",
   },
+  {
+    id: 7,
+    title: "Colombo Figma Prototype",
+    description:
+      "Colombo Kitchen is a website project that my group and I developed during university. We utilized Figma to design the prototype and plan the user interface.",
+    image: "/images/colombo-prototype.png",
+    tag: ["All", "Client"],
+    gitUrl: "https://github.com/VictoryoM/ColomboKitchenWebApplication",
+    previewUrl:
+      "https://www.figma.com/proto/kG789vCpgI7In669T3uFzS/Prototype-701?node-id=2-30&p=f&t=tgIrcigw4IQp9rBk-1&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A30",
+  },
 ];
 
 const ProjectsSection = () => {
