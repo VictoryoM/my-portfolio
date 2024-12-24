@@ -39,7 +39,7 @@ const TAB_DATA = [
     id: "work-experience",
     content: (
       <ul className="list-disc pl-2">
-        <li>Shift Manager, Burger King, Invercargill</li>
+        <li>Salaried Shift Manager, Burger King, Invercargill</li>
         <li>Help Desk Internship, SIT / Te Pukenga, Invercargill</li>
       </ul>
     ),

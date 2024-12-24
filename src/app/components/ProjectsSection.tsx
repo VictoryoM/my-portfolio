@@ -55,6 +55,16 @@ const projectsData = [
     gitUrl: "https://github.com/VictoryoM/quizie-721",
     previewUrl: "https://quizie-721.vercel.app/",
   },
+  {
+    id: 6,
+    title: "Engineering Website",
+    description:
+      "PT. Sapta Manunggal Karya is an Indonesia-based company specializing in engineering, with a focus on providing innovative solutions through its website.",
+    image: "/images/sapta-manunggal-karya.png",
+    tag: ["All", "Client"],
+    gitUrl: "https://github.com/MitraWebsite/SaptaManunggalKarya",
+    previewUrl: "https://www.saptamanunggalkarya.com/",
+  },
 ];
 
 const ProjectsSection = () => {
