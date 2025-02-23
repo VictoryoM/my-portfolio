@@ -76,6 +76,16 @@ const projectsData = [
     previewUrl:
       "https://www.figma.com/proto/kG789vCpgI7In669T3uFzS/Prototype-701?node-id=2-30&p=f&t=tgIrcigw4IQp9rBk-1&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A30",
   },
+  {
+    id: 8,
+    title: "Construction Website",
+    description:
+      "PT. Karya Ruata is an Indonesia-based company specializing in construction and civil engineering, with a focus on providing services and innovative solutions through its website.",
+    image: "/images/karya-ruata.png",
+    tag: ["All", "Client"],
+    gitUrl: "https://github.com/VictoryoM/KaryaRuata",
+    previewUrl: "https://www.karyaruata.com/",
+  },
 ];
 
 const ProjectsSection = () => {
