@@ -7,8 +7,9 @@ import { Toaster } from "sonner";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Victoryo's Portfolio",
-  description: "Portfolio of Victoryo",
+  title: "Portfolio | Victoryo Antonis Liu",
+  description:
+    "I'm a passionate creator and self-taught tech enthusiast, living and working in New Zealand.",
 };
 
 export default function RootLayout({
