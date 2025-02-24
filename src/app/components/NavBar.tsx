@@ -42,7 +42,7 @@ const NavBar = ({}) => {
               scroll.scrollToTop();
             }}
           >
-            <Image src={v} alt="V" width={35} height={35} />
+            <Image src={v} alt="Victoryo's Logo" width={35} height={35} />
             <p className="font-bold text-inherit text-white">Victoryo</p>
           </Link>
         </NavbarBrand>
