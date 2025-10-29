@@ -19,6 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script defer src="https://mma-analytics.up.railway.app/script.js" data-website-id="10f6d82c-0bb4-4036-a689-6d7f0492514b"></script>
+        <title>Victoryo Antonis Liu</title>
+      </head>
       <body className={inter.className}>
         <Providers>
           {children}
