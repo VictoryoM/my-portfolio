@@ -12,11 +12,14 @@ const TAB_DATA = [
     id: "skills",
     content: (
       <ul className="list-disc pl-2">
-        <li>React</li>
-        <li>Javascript</li>
-        <li>Typescript</li>
-        <li>Github</li>
-        <li>Networking</li>
+        <li>React / Next.js</li>
+        <li>JavaScript / TypeScript</li>
+        <li>Node.js / REST APIs</li>
+        <li>Github / CI/CD</li>
+        <li>Dynamics 365 Business Central / AL</li>
+        <li>Microsoft 365</li>
+        <li>MCP / AI Integrations</li>
+        <li>Docker</li>
         <li>Figma</li>
       </ul>
     ),
@@ -39,6 +42,7 @@ const TAB_DATA = [
     id: "work-experience",
     content: (
       <ul className="list-disc pl-2">
+        <li>IT Support Assistant, Auckland BioSciences, Auckland</li>
         <li>Salaried Shift Manager, Burger King, Invercargill</li>
         <li>Help Desk Internship, SIT / Te Pukenga, Invercargill</li>
       </ul>
